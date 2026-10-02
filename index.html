@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>From Copy to Copied — China</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;800&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reset.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/black.css" />
+
+  <style>
+    :root {
+      --red: #C8102E;
+      --deep: #8B0000;
+      --gold: #F2C14E;
+      --gold2: #D4AF37;
+      --ink: #0B0B0F;
+      --jade: #00A86B;
+      --neon: #00F0FF; --sf: #1B96FF;
+      --pink: #FF2E88;
+      --paper: #F5EFE6;
+      --side: 76px;
+    }
+    html, body { background: var(--ink); }
+    .reveal { font-family: 'Inter', system-ui, sans-serif; color: var(--paper); }
+    .reveal .slides { text-align: left; }
+    .reveal .slides > section {
+      height: 100%; box-sizing: border-box;
+      padding: 70px 110px 80px calc(110px + var(--side));
+      flex-direction: column; justify-content: center;
+    }
+    .reveal h1, .reveal h2, .reveal h3 {
+      font-family: 'Anton', 'Bebas Neue', Impact, sans-serif;
+      text-transform: uppercase; letter-spacing: .01em; line-height: .95;
+      color: var(--paper); text-shadow: 0 6px 40px rgba(0,0,0,.6); margin: 0 0 .35em;
+    }
+    .reveal h1 { font-size: 150px; }
+    .reveal h2 { font-size: 92px; }
+    .reveal h3 { font-size: 46px; }
+    .reveal p, .reveal li { font-size: 30px; line-height: 1.4; }
+    .reveal em { color: var(--gold); font-style: normal; }
+    .reveal strong { color: var(--gold); }
+    .reveal .red { color: var(--red); }
+    .reveal .gold { color: var(--gold); }
+    .reveal .jade { color: var(--jade); }
+    .reveal .neon { color: var(--neon); }
+    .reveal .muted { color: rgba(245,239,230,.6); }
+    .reveal .hz { font-family: 'Noto Serif SC', serif; font-weight: 900; }
+
+    /* kicker / eyebrow */
+    .kicker {
+      font-size: 22px !important; letter-spacing: .35em; text-transform: uppercase;
+      color: var(--gold); font-weight: 600; margin-bottom: 18px !important;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .kicker::before { content: ''; width: 56px; height: 3px; background: var(--red); }
+
+    .lead { font-size: 38px !important; font-weight: 300; max-width: 1150px; }
+    .big-quote {
+      font-family: 'Anton', sans-serif; font-size: 96px !important; line-height: 1.02 !important;
+      text-transform: uppercase; max-width: 1250px;
+    }
+    .src {
+      position: absolute; left: calc(110px + var(--side)); bottom: 34px;
+      font-size: 15px !important; color: rgba(245,239,230,.45); letter-spacing: .04em;
+    }
+    .tag {
+      display: inline-block; font-size: 15px; letter-spacing: .15em; text-transform: uppercase;
+      padding: 3px 10px; border: 1px solid currentColor; border-radius: 3px; vertical-align: middle;
+      margin-left: 10px; color: var(--gold); opacity: .85;
+    }
+    .reveal h3 .tag { font-family: 'Inter', sans-serif; font-weight: 600; text-shadow: none; }
+
+    /* watermark hanzi */
+    .glyph {
+      position: absolute; right: 40px; top: 50%; transform: translateY(-50%);
+      font-family: 'Noto Serif SC', serif; font-weight: 900; font-size: 640px; line-height: 1;
+      color: var(--red); opacity: .16; pointer-events: none; z-index: -1;
+      text-shadow: 0 0 120px rgba(200,16,46,.45);
+    }
+    section.present .glyph { animation: glyphIn 1.6s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes glyphIn {
+      from { opacity: 0; transform: translateY(-46%) scale(1.25); filter: blur(18px); }
+      to   { opacity: .16; transform: translateY(-50%) scale(1); filter: blur(0); }
+    }
+
+    /* layouts */
+    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .cols3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+    .cols4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+    .card {
+      background: linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.12); border-left: 4px solid var(--red);
+      padding: 26px 28px; border-radius: 6px; backdrop-filter: blur(6px);
+    }
+    .card h3 { font-size: 38px; margin-bottom: .25em; }
+    .card p { font-size: 23px !important; margin: 0; color: rgba(245,239,230,.82); }
+    .card.gold { border-left-color: var(--gold); }
+    .card.jade { border-left-color: var(--jade); }
+    .card.neon { border-left-color: var(--neon); }
+
+    /* then vs now */
+    .vs { display: grid; grid-template-columns: 1fr 120px 1fr; align-items: center; }
+    .vs .mid { font-family: 'Anton'; font-size: 80px; color: var(--red); text-align: center; }
+    .vs .year { font-family: 'Anton'; font-size: 54px; color: var(--gold); }
+    .vs .num { font-family: 'Anton'; font-size: 150px; line-height: 1; }
+    .vs .lbl { font-size: 24px; color: rgba(245,239,230,.7); }
+    .then .num { color: rgba(245,239,230,.55); filter: grayscale(1); }
+
+    /* stats grid */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px 30px; margin-top: 10px; }
+    .stat { border-top: 2px solid rgba(242,193,78,.5); padding-top: 12px; }
+    .stat .v { font-family: 'Anton'; font-size: 66px; line-height: 1; color: var(--paper); }
+    .stat .v small { font-size: 32px; color: var(--gold); }
+    .stat .k { font-size: 19px; color: rgba(245,239,230,.65); margin-top: 6px; }
+    .stat .was { font-size: 17px; color: rgba(245,239,230,.4); }
+    .stats.plan { gap: 26px 34px; }
+    .stats.plan .k { color: var(--gold); margin: 0 0 6px; font-size: 18px; letter-spacing: .08em; text-transform: uppercase; }
+    .stats.plan .v { font-size: 60px; }
+    .reveal .card .pill-list.tight li { font-size: 21px; margin: 0 0 8px; color: var(--paper); }
+    /* NIO full-screen image show (slide 18) */
+    .nio-show .nio-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 34px; align-items: start; margin-top: 18px; }
+    .nio-show figure { margin: 0; }
+    .reveal .nio-show img { width: 100%; height: 380px; object-fit: cover; margin: 0; max-width: none; max-height: none;
+      border: 1px solid rgba(232,184,75,.35); border-radius: 10px; box-shadow: 0 18px 50px rgba(0,0,0,.6); background: #000; }
+    .reveal .nio-show img[src*="full-stack"] { object-fit: contain; padding: 14px; box-sizing: border-box; }
+    .nio-show figcaption { font-size: 20px; line-height: 1.35; color: var(--paper); margin-top: 16px; opacity: .85; }
+    .nio-show figcaption b { display: block; font: 400 34px 'Anton', sans-serif; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+    .nio-show .src { position: static; margin-top: 26px; }
+    .reveal .fragment.punch.nio-nomi { background: radial-gradient(ellipse at 75% 50%, #3a0a0e, #0B0B0F 65%); }
+    .nio-nomi .nomi-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 56px; align-items: center; }
+    .nio-nomi h2 { margin: 6px 0 18px; }
+    .reveal .nio-nomi video { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; border: 1px solid rgba(232,184,75,.35); box-shadow: 0 18px 60px rgba(0,0,0,.7); display: block; }
+    /* speaker block on the cover */
+    .speaker { display: flex; align-items: center; gap: 22px; margin-top: 46px; }
+    .speaker .ph { position: relative; width: 120px; height: 120px; flex: none; border-radius: 50%; overflow: hidden;
+      background: linear-gradient(135deg, var(--red), var(--deep)); box-shadow: 0 0 0 3px var(--gold), 0 10px 40px rgba(0,0,0,.6); }
+    .speaker .ph span { position: absolute; inset: 0; display: grid; place-items: center; font: 400 46px 'Anton', sans-serif; color: var(--paper); }
+    .reveal .speaker .ph img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; margin: 0; max-width: none; max-height: none; border: 0; }
+    .speaker p { margin: 0; }
+    .speaker .nm { font: 400 44px 'Anton', sans-serif; letter-spacing: .02em; text-transform: uppercase; line-height: 1; }
+    .speaker .rl { font-size: 18px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-top: 8px; }
+    /* China → Salesforce analogy rows */
+    .analog { display: grid; gap: 8px; max-width: 1330px; margin-top: 4px; }
+    .analog .hd, .analog .row { display: grid; grid-template-columns: 54px 1fr 40px 1fr; gap: 18px; align-items: center; }
+    .analog .hd span { font-size: 15px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); }
+    .analog .row { padding: 7px 18px; background: rgba(255,255,255,.04); border-left: 4px solid var(--red); border-radius: 6px; }
+    .analog .row.trust { border-left-color: var(--jade); }
+    .analog .row p { margin: 0; font-size: 17px; line-height: 1.3; }
+    .analog .row p:nth-of-type(1) { color: rgba(245,239,230,.72); }
+    .analog .row p b { display: block; color: var(--paper); font-size: 19px; margin-bottom: 1px; }
+    .analog .n { font: 400 34px 'Anton', sans-serif; color: var(--gold); }
+    .analog .arr { font-size: 30px; color: var(--red); text-align: center; }
+    .analog .row.trust .arr { color: var(--jade); }
+    /* Salesforce side in brand blue */
+    .reveal .sf, .analog .hd .sf { color: var(--sf); }
+    .analog .row p:nth-of-type(2), .analog .row p:nth-of-type(2) strong { color: var(--sf); }
+    .analog .row p:nth-of-type(2) { color: #BFE6FA; }
+    .analog .row p:nth-of-type(2) em { color: var(--paper); font-style: normal; font-weight: 600; }
+    .analog .row .arr, .analog .row.trust .arr { color: var(--sf); }
+    /* app ranking strip with logos (slide "Brazil is already Chinese") */
+    .apps { display: grid; grid-template-columns: repeat(10, 1fr); gap: 14px; margin: 46px 0 8px; }
+    .app { position: relative; text-align: center; padding: 14px 4px 10px; border-radius: 10px; opacity: .38; filter: grayscale(.7); }
+    .app.cn { opacity: 1; filter: none; background: rgba(0,240,255,.07); box-shadow: 0 0 0 2px var(--neon) inset, 0 0 40px rgba(0,240,255,.25); }
+    .reveal .app img { display: block; width: 92px; height: 92px; margin: 0 auto 10px; border-radius: 22%; max-width: none; border: 0; box-shadow: 0 6px 18px rgba(0,0,0,.5); }
+    .app .rk { position: absolute; top: -40px; left: 0; right: 0; font: 400 30px 'Anton', sans-serif; color: var(--paper); }
+    .app.cn .rk { color: var(--neon); }
+    .app b { display: block; font-size: 15px; font-weight: 600; white-space: nowrap; }
+    .app i { display: block; font-style: normal; font-size: 13px; letter-spacing: .2em; margin-top: 4px; color: rgba(245,239,230,.55); }
+    .app.cn i { color: var(--neon); }
+    .reveal .stat .v img { height: 56px; width: 56px; border-radius: 22%; margin: 0 14px 0 0; vertical-align: -6px; border: 0; }
+
+    /* rule slides */
+    .rule-num {
+      font-family: 'Anton'; font-size: 150px; line-height: .9; color: transparent;
+      -webkit-text-stroke: 2px var(--gold); opacity: .9; margin-bottom: 4px;
+    }
+    .reveal ul.pill-list { list-style: none; margin: 0; padding: 0; display: block; }
+    .reveal ul.pill-list.sm li { font-size: 24px; margin-bottom: 12px; }
+    .pill-list li { margin: 0 0 16px; padding-left: 34px; position: relative; font-size: 28px; }
+    .pill-list li::before {
+      content: ''; position: absolute; left: 0; top: .55em; width: 14px; height: 14px;
+      background: var(--red); transform: rotate(45deg);
+    }
+
+    /* flow arrows */
+    .flow { display: flex; gap: 12px; align-items: stretch; flex-wrap: wrap; }
+    .flow .step {
+      flex: 1; background: rgba(200,16,46,.18); border: 1px solid rgba(200,16,46,.6);
+      padding: 18px 16px; font-size: 22px; font-weight: 600; text-align: center; position: relative;
+    }
+    .flow.west .step { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.25); }
+
+    /* bars */
+    .bars { display: grid; gap: 14px; max-width: 1100px; }
+    .bar { display: grid; grid-template-columns: 240px 1fr 90px; align-items: center; gap: 18px; font-size: 24px; }
+    .bar .track { height: 30px; background: rgba(255,255,255,.07); }
+    .bar .fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--deep), var(--red)); transition: width 1.4s cubic-bezier(.2,.8,.2,1); }
+    .bar.hot .fill { background: linear-gradient(90deg, var(--pink), var(--neon)); }
+    section.present .bar .fill { width: var(--w); }
+    .bar .n { font-family: 'Anton'; font-size: 34px; }
+    .bars.wide { max-width: 1200px; }
+    .bars.wide .bar { grid-template-columns: 390px 1fr 90px; }
+    .bars.compact { gap: 6px; }
+
+    /* leader photo (background-removed cut-out) behind a column of text */
+    .portrait { position: relative; z-index: 0; }
+    .reveal img.leader {
+      position: absolute; z-index: -1; left: 50%; top: 50%; transform: translate(-50%, -50%);
+      height: 680px; width: auto; max-width: none; max-height: none; margin: 0; border: 0; box-shadow: none;
+      opacity: .42; pointer-events: none;
+      -webkit-mask: linear-gradient(#000 55%, transparent 98%); mask: linear-gradient(#000 55%, transparent 98%);
+    }
+
+    /* full-slide reveal on the last click ("one more thing") */
+    .reveal .fragment.punch {
+      position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; justify-content: center;
+      padding: 70px 110px 80px calc(110px + var(--side));
+      background: radial-gradient(ellipse at 75% 50%, rgba(139,0,0,.55), rgba(11,11,15,.93) 65%);
+      backdrop-filter: blur(10px);
+      opacity: 0; transform: scale(1.06); transition: opacity .6s ease, transform .9s cubic-bezier(.2,.8,.2,1), visibility .6s;
+    }
+    .reveal .fragment.punch.visible { opacity: 1; transform: none; }
+    .punch .bar .fill { width: 0 !important; }
+    .punch.visible .bar .fill { width: var(--w) !important; transition-delay: .3s; }
+    .bars.compact .track { height: 22px; }
+
+    /* horizons */
+    .hz-row { display: grid; grid-template-columns: 150px 1fr; gap: 24px; align-items: center; margin-bottom: 20px; }
+    .hz-row .h { font-family: 'Anton'; font-size: 80px; line-height: 1; }
+
+    /* acronym wall */
+    .wall { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+    .wall div { border: 1px solid rgba(242,193,78,.35); padding: 14px 10px; text-align: center; }
+    .wall b { font-family: 'Anton'; font-size: 44px; color: var(--gold); display: block; font-weight: 400; }
+    .wall span { display: block; font-size: 16px; line-height: 1.3; color: rgba(245,239,230,.7); }
+    @media (max-height: 700px) { #sidenav .seal { display: none; } }
+
+    /* vertical video inside a phone frame */
+    .phone {
+      position: absolute; right: 110px; top: 285px; transform: rotate(3deg);
+      width: 290px; height: 516px; border-radius: 40px; overflow: hidden;
+      opacity: 0; transition: opacity .6s;
+      border: 10px solid #15151b; box-shadow: 0 0 0 2px rgba(0,240,255,.5), 0 30px 90px rgba(0,0,0,.7), 0 0 80px rgba(255,46,136,.35);
+      background: #000;
+    }
+    .phone.ok { opacity: 1; }
+    .phone video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .phone .live {
+      position: absolute; top: 18px; left: 18px; background: var(--red); color: #fff;
+      font: 700 15px 'Inter'; letter-spacing: .12em; padding: 4px 10px; border-radius: 4px;
+      animation: blink 1.4s infinite;
+    }
+    @keyframes blink { 50% { opacity: .55; } }
+
+    /* counters */
+    .count { font-variant-numeric: tabular-nums; }
+
+    /* ---------- background layers ---------- */
+    #fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .veil {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(11,11,15,.92) 0%, rgba(11,11,15,.55) 45%, rgba(11,11,15,.15) 75%, rgba(139,0,0,.25) 100%),
+        radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.65) 100%);
+    }
+    .veil::after { /* film grain / scanlines */
+      content: ''; position: absolute; inset: 0; opacity: .07;
+      background: repeating-linear-gradient(0deg, #fff 0 1px, transparent 1px 3px);
+      mix-blend-mode: overlay;
+    }
+    /* Ken Burns on media backgrounds */
+    .reveal .slide-background.present .slide-background-content {
+      animation: kenburns 24s ease-in-out infinite alternate;
+    }
+    @keyframes kenburns {
+      from { transform: scale(1.02) translate(0, 0); }
+      to   { transform: scale(1.14) translate(-2%, -1.5%); }
+    }
+
+    /* ---------- side navigation ---------- */
+    #sidenav {
+      position: fixed; left: 0; top: 0; bottom: 0; width: var(--side); z-index: 40;
+      background: linear-gradient(180deg, rgba(139,0,0,.92), rgba(11,11,15,.94));
+      border-right: 1px solid rgba(242,193,78,.25);
+      display: flex; flex-direction: column; justify-content: center; gap: 4px;
+      transition: width .35s cubic-bezier(.2,.8,.2,1); overflow: hidden;
+      backdrop-filter: blur(8px);
+    }
+    #sidenav:hover { width: 330px; box-shadow: 20px 0 60px rgba(0,0,0,.6); }
+    #sidenav .seal {
+      position: absolute; top: 22px; left: 14px; width: 48px; height: 48px; background: var(--red);
+      color: var(--paper); font-family: 'Noto Serif SC'; font-weight: 900; font-size: 30px;
+      display: grid; place-items: center; border-radius: 6px; box-shadow: 0 0 0 2px var(--gold) inset;
+    }
+    #sidenav a {
+      display: flex; align-items: center; gap: 18px; padding: 12px 0 12px 18px; white-space: nowrap;
+      color: rgba(245,239,230,.55); text-decoration: none; cursor: pointer; position: relative;
+      font-family: 'Inter'; font-size: 16px; letter-spacing: .14em; text-transform: uppercase;
+    }
+    #sidenav a .n {
+      font-family: 'Noto Serif SC'; font-weight: 900; font-size: 26px; width: 40px; text-align: center;
+      flex: none; transition: transform .3s, color .3s;
+    }
+    #sidenav a:hover { color: var(--paper); }
+    #sidenav a.active { color: var(--gold); }
+    #sidenav a.active .n { color: var(--gold); transform: scale(1.25); text-shadow: 0 0 18px rgba(242,193,78,.8); }
+    #sidenav a.active::before {
+      content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 4px; background: var(--gold);
+    }
+    #sidenav .prog {
+      position: absolute; left: 0; bottom: 0; width: 4px; background: var(--gold);
+      transition: height .5s; box-shadow: 0 0 12px var(--gold);
+    }
+    #sidenav a.pv { position: absolute; bottom: 18px; left: 0; right: 0; opacity: .55; }
+    #sidenav a.pv:hover { opacity: 1; }
+    .reveal .progress { color: var(--red); height: 4px; }
+    .reveal .controls { color: var(--gold); }
+    .reveal .slide-number { right: 140px; bottom: 18px; background: transparent; color: rgba(245,239,230,.5); font-family: 'Anton'; font-size: 18px; }
+
+    /* mood accents */
+    body.mood-neon .kicker::before { background: var(--neon); }
+    body.mood-neon .glyph { color: var(--neon); text-shadow: 0 0 120px rgba(0,240,255,.5); }
+    body.mood-neon .reveal strong, body.mood-neon .reveal em { color: var(--neon); }
+
+    /* fragments: rise */
+    .reveal .fragment.rise { opacity: 0; transform: translateY(40px); transition: all .7s cubic-bezier(.2,.8,.2,1); }
+    .reveal .fragment.rise.visible { opacity: 1; transform: none; }
+
+    /* print */
+    @media print { #sidenav, #fx, .veil { display: none !important; } }
+  </style>
+</head>
+<body>
+  <nav id="sidenav"><div class="seal">中</div><div class="prog"></div></nav>
+
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown="slides.md"
+               data-separator="^\r?\n---\r?\n$"
+               data-separator-vertical="^\r?\n--\r?\n$"
+               data-separator-notes="^Note:">
+      </section>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
+  <script>
+  (function () {
+    // ?preview = copy of the deck embedded in presenter.html (passive, follows the main deck)
+    const PREVIEW = /[?&]preview\b/.test(location.search);
+    const deck = new Reveal({
+      width: 1600, height: 900, margin: 0, center: false, display: 'flex',
+      hash: !PREVIEW, slideNumber: 'c/t', controls: !PREVIEW, progress: !PREVIEW,
+      keyboard: PREVIEW ? false : { 83: openPresenter }, // S = presenter view
+      transition: PREVIEW ? 'none' : 'convex', backgroundTransition: PREVIEW ? 'none' : 'fade', transitionSpeed: 'slow',
+      plugins: [RevealMarkdown]
+    });
+    window.deck = deck;
+
+    // ---------- presenter view: second window synced over BroadcastChannel ----------
+    function openPresenter() {
+      window.open('presenter.html', 'cfc-presenter', 'width=1440,height=900');
+    }
+    const channel = PREVIEW ? null : new BroadcastChannel('cfc-presenter');
+    function chapterOf(h) {
+      let cur = null;
+      chapters.forEach(c => { if (c.i <= h) cur = c; });
+      return cur ? cur.label : '';
+    }
+    function sendState() {
+      if (!channel) return;
+      const s = deck.getCurrentSlide();
+      channel.postMessage({
+        type: 'state', idx: deck.getIndices(),
+        n: deck.getSlidePastCount() + 1, total: deck.getTotalSlides(),
+        chapter: chapterOf(deck.getIndices().h),
+        notes: deck.getSlideNotes(s) || '',
+        clicksLeft: s.querySelectorAll('.fragment:not(.visible)').length
+      });
+    }
+    const COMMANDS = {
+      next: () => deck.next(), prev: () => deck.prev(),
+      first: () => deck.slide(0), last: () => deck.slide(deck.getHorizontalSlides().length - 1)
+    };
+    if (channel) channel.onmessage = e => {
+      const m = e.data || {};
+      if (m.type === 'hello') sendState();
+      if (m.type === 'cmd' && COMMANDS[m.cmd]) COMMANDS[m.cmd]();
+    };
+
+    // ---------- media: use local file if present, else keep the animated fallback ----------
+    const VIDEO = /\.(mp4|webm|mov)$/i;
+    async function exists(url) {
+      try { return (await fetch(url, { method: 'HEAD', cache: 'no-store' })).ok; }
+      catch (e) { return false; }
+    }
+    async function loadMedia() {
+      const slides = [...deck.getSlidesElement().querySelectorAll('section[data-media]')];
+      const found = await Promise.all(slides.map(async s => {
+        const candidates = s.dataset.media.split('|').map(x => x.trim());
+        for (const c of candidates) if (await exists(c)) return [s, c];
+        return null;
+      }));
+      let changed = false;
+      for (const hit of found) {
+        if (!hit) continue;
+        const [s, url] = hit;
+        if (VIDEO.test(url)) {
+          s.setAttribute('data-background-video', url);
+          s.setAttribute('data-background-video-loop', '');
+          s.setAttribute('data-background-video-muted', '');
+        } else {
+          s.setAttribute('data-background-image', url);
+        }
+        s.setAttribute('data-background-size', 'cover');
+        s.setAttribute('data-background-opacity', s.dataset.opacity || '0.55');
+        s.classList.add('has-media');
+        changed = true;
+      }
+      if (changed) deck.sync();
+    }
+
+    // ---------- side navigation built from data-chapter ----------
+    const nav = document.getElementById('sidenav');
+    let chapters = [];
+    function buildNav() {
+      const hs = deck.getHorizontalSlides();
+      hs.forEach((s, i) => {
+        const c = s.dataset.chapter;
+        if (!c) return;
+        const [num, label] = c.split('|');
+        const a = document.createElement('a');
+        a.innerHTML = `<span class="n">${num}</span><span>${label}</span>`;
+        a.addEventListener('click', () => deck.slide(i));
+        nav.insertBefore(a, nav.querySelector('.prog'));
+        chapters.push({ i, a, label: `${num} ${label}` });
+      });
+      if (PREVIEW) return;
+      const pv = document.createElement('a');
+      pv.className = 'pv'; pv.title = 'Presenter view (S)';
+      pv.innerHTML = '<span class="n">讲</span><span>Presenter · S</span>';
+      pv.addEventListener('click', openPresenter);
+      nav.appendChild(pv);
+    }
+    function updateNav(h) {
+      let cur = null;
+      chapters.forEach(c => { if (c.i <= h) cur = c; c.a.classList.remove('active'); });
+      if (cur) cur.a.classList.add('active');
+      nav.querySelector('.prog').style.height = (deck.getProgress() * 100) + '%';
+    }
+
+    // ---------- counters ----------
+    function runCounters(slide) {
+      slide.querySelectorAll('.count').forEach(el => {
+        const to = parseFloat(el.dataset.to), dec = parseInt(el.dataset.dec || '0', 10);
+        const pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+        const dur = 1600, t0 = performance.now();
+        const fmt = v => pre + v.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + suf;
+        (function tick(t) {
+          const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+          el.textContent = fmt(to * e);
+          if (p < 1) requestAnimationFrame(tick);
+        })(t0);
+      });
+    }
+
+    // ---------- canvas FX: hanzi rain / customer network ----------
+    const HANZI = '变革新速数字关系规模中国创造未来网人心龙福道和信商客智电车云链光城梦强学势局棋'.split('');
+    const PALETTE = {
+      red:  ['rgba(200,16,46,', 'rgba(242,193,78,'],
+      ink:  ['rgba(200,16,46,', 'rgba(245,239,230,'],
+      neon: ['rgba(0,240,255,', 'rgba(255,46,136,']
+    };
+    let canvas, ctx, W, H, drops = [], nodes = [], mode = 'rain', mood = 'red', dim = 1;
+    function setupFx() {
+      canvas = document.createElement('canvas'); canvas.id = 'fx';
+      const bg = document.querySelector('.reveal .backgrounds');
+      bg.after(canvas);
+      const veil = document.createElement('div'); veil.className = 'veil';
+      canvas.after(veil);
+      ctx = canvas.getContext('2d');
+      resize(); window.addEventListener('resize', resize);
+      requestAnimationFrame(frame);
+    }
+    function resize() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = canvas.clientWidth; H = canvas.clientHeight;
+      canvas.width = W * dpr; canvas.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const cols = Math.ceil(W / 46);
+      drops = Array.from({ length: cols }, (_, i) => ({
+        x: i * 46 + 10, y: Math.random() * H * 1.2 - H * .2, v: 0.6 + Math.random() * 1.8,
+        size: 18 + Math.random() * 22, ch: HANZI[(Math.random() * HANZI.length) | 0], a: .12 + Math.random() * .4
+      }));
+      nodes = Array.from({ length: 70 }, () => ({
+        x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .5, vy: (Math.random() - .5) * .5,
+        r: 1.5 + Math.random() * 3
+      }));
+    }
+    function frame(t) {
+      ctx.clearRect(0, 0, W, H);
+      const [c1, c2] = PALETTE[mood] || PALETTE.red;
+      if (mode === 'rain') {
+        for (const d of drops) {
+          ctx.font = `900 ${d.size}px "Noto Serif SC", serif`;
+          ctx.fillStyle = c1 + (d.a * dim) + ')';
+          ctx.fillText(d.ch, d.x, d.y);
+          ctx.fillStyle = c2 + (d.a * .5 * dim) + ')';
+          ctx.fillText(d.ch, d.x, d.y - d.size * 1.3);
+          d.y += d.v;
+          if (d.y > H + 60) { d.y = -60 - Math.random() * 400; d.ch = HANZI[(Math.random() * HANZI.length) | 0]; }
+        }
+      } else if (mode === 'network') {
+        const cx = W * .88, cy = H * .22, pulse = 1 + Math.sin(t / 500) * .15;
+        for (const n of nodes) {
+          n.x += n.vx; n.y += n.vy;
+          if (n.x < 0 || n.x > W) n.vx *= -1;
+          if (n.y < 0 || n.y > H) n.vy *= -1;
+        }
+        for (let i = 0; i < nodes.length; i++) {
+          const a = nodes[i];
+          for (let j = i + 1; j < nodes.length; j++) {
+            const b = nodes[j], dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
+            if (d < 170) { ctx.strokeStyle = c1 + ((1 - d / 170) * .35 * dim) + ')'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+          }
+          const dc = Math.hypot(a.x - cx, a.y - cy);
+          if (dc < 420) { ctx.strokeStyle = c2 + ((1 - dc / 420) * .45 * dim) + ')'; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(cx, cy); ctx.stroke(); }
+          ctx.fillStyle = c1 + (.8 * dim) + ')'; ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, 7); ctx.fill();
+        }
+        const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, 90 * pulse);
+        g.addColorStop(0, c2 + (.9 * dim) + ')'); g.addColorStop(1, c2 + '0)');
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, 90 * pulse, 0, 7); ctx.fill();
+        ctx.font = '900 54px "Noto Serif SC", serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillStyle = 'rgba(245,239,230,' + (.95 * dim) + ')'; ctx.fillText('客', cx, cy);
+        ctx.textAlign = 'start'; ctx.textBaseline = 'alphabetic';
+      }
+      requestAnimationFrame(frame);
+    }
+
+    function onSlide(ev) {
+      const s = ev.currentSlide;
+      mode = s.dataset.fx || 'rain';
+      mood = s.dataset.mood || 'red';
+      dim = s.classList.contains('has-media') ? .5 : 1;
+      document.body.className = document.body.className.replace(/\bmood-\S+/g, '') + ' mood-' + mood;
+      updateNav(ev.indexh);
+      runCounters(s);
+    }
+
+    window.deckReady = deck.initialize().then(() => {
+      setupFx(); buildNav();
+      deck.on('slidechanged', onSlide);
+      deck.on('fragmentshown', ev => runCounters(ev.fragment));
+      ['slidechanged', 'fragmentshown', 'fragmenthidden'].forEach(ev => deck.on(ev, sendState));
+      onSlide({ currentSlide: deck.getCurrentSlide(), indexh: deck.getIndices().h });
+      sendState();
+      loadMedia().then(() => onSlide({ currentSlide: deck.getCurrentSlide(), indexh: deck.getIndices().h }));
+      return deck;
+    });
+  })();
+  </script>
+</body>
+</html>
