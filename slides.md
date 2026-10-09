@@ -543,7 +543,7 @@ Note:
 <p class="lead">An AI companion on the dashboard. It smiles, it looks around, it has a face. The relationship is <em>built into the car</em>.</p>
 <p class="src">NIO official website · company's own description</p>
 </div>
-<video src="media/16-nio-nomi.mp4" autoplay muted loop playsinline></video>
+<video src="media/16-nio-nomi.mp4" data-autoplay muted loop playsinline></video>
 </div>
 </div>
 

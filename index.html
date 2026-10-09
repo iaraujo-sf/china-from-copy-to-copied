@@ -332,6 +332,12 @@
     .reveal .fragment.rise { opacity: 0; transform: translateY(40px); transition: all .7s cubic-bezier(.2,.8,.2,1); }
     .reveal .fragment.rise.visible { opacity: 1; transform: none; }
 
+    /* ?preview copies inside presenter.html: static, no per-frame compositing */
+    html.preview *, html.preview *::before, html.preview *::after { animation: none !important; backdrop-filter: none !important; }
+    html.preview .veil::after { display: none; }
+    html.preview .glyph { text-shadow: none; }
+    html.preview .phone { opacity: 1; }
+
     /* print */
     @media print { #sidenav, #fx, .veil { display: none !important; } }
   </style>
@@ -355,6 +361,7 @@
   (function () {
     // ?preview = copy of the deck embedded in presenter.html (passive, follows the main deck)
     const PREVIEW = /[?&]preview\b/.test(location.search);
+    if (PREVIEW) document.documentElement.classList.add('preview');
     const deck = new Reveal({
       width: 1600, height: 900, margin: 0, center: false, display: 'flex',
       hash: !PREVIEW, slideNumber: 'c/t', controls: !PREVIEW, progress: !PREVIEW,
@@ -404,7 +411,8 @@
     async function loadMedia() {
       const slides = [...deck.getSlidesElement().querySelectorAll('section[data-media]')];
       const found = await Promise.all(slides.map(async s => {
-        const candidates = s.dataset.media.split('|').map(x => x.trim());
+        // previews never load background videos, only the still image
+        const candidates = s.dataset.media.split('|').map(x => x.trim()).filter(c => !(PREVIEW && VIDEO.test(c)));
         for (const c of candidates) if (await exists(c)) return [s, c];
         return null;
       }));
@@ -478,7 +486,7 @@
       ink:  ['rgba(200,16,46,', 'rgba(245,239,230,'],
       neon: ['rgba(0,240,255,', 'rgba(255,46,136,']
     };
-    let canvas, ctx, W, H, drops = [], nodes = [], mode = 'rain', mood = 'red', dim = 1;
+    let canvas, ctx, W, H, drops = [], nodes = [], mode = 'rain', mood = 'red', dim = 1, looping = false;
     function setupFx() {
       canvas = document.createElement('canvas'); canvas.id = 'fx';
       const bg = document.querySelector('.reveal .backgrounds');
@@ -487,10 +495,14 @@
       canvas.after(veil);
       ctx = canvas.getContext('2d');
       resize(); window.addEventListener('resize', resize);
-      requestAnimationFrame(frame);
+      // previews draw one still frame per slide (see onSlide); the main deck animates while visible
+      if (!PREVIEW) {
+        document.addEventListener('visibilitychange', () => { if (!document.hidden && !looping) { looping = true; requestAnimationFrame(frame); } });
+        looping = true; requestAnimationFrame(frame);
+      }
     }
     function resize() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = 1; // low-alpha background art; full retina resolution is not worth 4× the pixels
       W = canvas.clientWidth; H = canvas.clientHeight;
       canvas.width = W * dpr; canvas.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       const cols = Math.ceil(W / 46);
@@ -540,7 +552,7 @@
         ctx.fillStyle = 'rgba(245,239,230,' + (.95 * dim) + ')'; ctx.fillText('客', cx, cy);
         ctx.textAlign = 'start'; ctx.textBaseline = 'alphabetic';
       }
-      requestAnimationFrame(frame);
+      if (!PREVIEW && !document.hidden) requestAnimationFrame(frame); else looping = false;
     }
 
     function onSlide(ev) {
@@ -550,10 +562,15 @@
       dim = s.classList.contains('has-media') ? .5 : 1;
       document.body.className = document.body.className.replace(/\bmood-\S+/g, '') + ' mood-' + mood;
       updateNav(ev.indexh);
+      if (PREVIEW) { frame(0); return; } // counters jump to their final value in previews
       runCounters(s);
     }
 
     window.deckReady = deck.initialize().then(() => {
+      if (PREVIEW) deck.getSlidesElement().querySelectorAll('video').forEach(v => {
+        v.removeAttribute('autoplay'); v.removeAttribute('data-autoplay');
+        v.pause(); v.removeAttribute('src'); v.load(); // stop any download already started
+      });
       setupFx(); buildNav();
       deck.on('slidechanged', onSlide);
       deck.on('fragmentshown', ev => runCounters(ev.fragment));
